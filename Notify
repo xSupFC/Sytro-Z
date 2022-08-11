@@ -1,0 +1,118 @@
+-- Notify Made by GhostPlayer
+-- Edited by xSupFC
+
+local LibNotify = {}
+
+function LibNotify:Notify(text, desc, c) 
+_G.Setting ={
+["Title"] = text, 
+["Desc"] = desc, 
+["Time"] = c or 4
+} 
+for z,_ in pairs(game.CoreGui:GetChildren()) do
+    if _.Name == "Notify" then
+        _:Destroy()
+    end
+end
+
+local TweenService = game:GetService("TweenService") 
+local MessageGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Message1 = Instance.new("TextLabel")
+local Message2 = Instance.new("TextLabel")
+
+MessageGui.Name = "Notify"
+MessageGui.Parent = game.CoreGui
+
+Frame.Parent = MessageGui
+Frame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Frame.BorderColor3 = Color3.fromRGB(0,255,255)
+Frame.BorderSizePixel = 1
+Frame.Size = UDim2.new(0.2,0.2,0.25)
+Frame.Active = true
+Frame.Draggable = false
+Frame.Visible = false
+Frame.Transparency = 1
+Frame.Position = UDim2.new(0.99,0,0.7)
+Frame.ClipsDescendants = true
+
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.new(1,1,1)
+Title.BackgroundTransparency = 1
+Title.Position = UDim2.new(0.01,0,0.01)
+Title.TextColor3 = Color3.new(1,1,1)
+Title.Size = UDim2.new(0.980,0,0.2)
+Title.Font = Enum.Font.Code
+Title.FontSize = Enum.FontSize.Size14
+Title.TextScaled = true
+Title.TextSize = 8
+Title.TextWrapped = true
+Title.Text = _G.Setting["Title"]
+
+Message1.Parent = Frame
+Message1.BackgroundColor3 = Color3.new(1,1,1)
+Message1.BackgroundTransparency = 1
+Message1.Position = UDim2.new(0.01,0,0.35)
+Message1.TextColor3 = Color3.new(1,1,1)
+Message1.Size = UDim2.new(0.980,0,0.2)
+Message1.Font = Enum.Font.GothamSemibold
+Message1.FontSize = Enum.FontSize.Size18
+Message1.TextScaled = true
+Message1.TextSize = 14
+Message1.TextWrapped = true
+Message1.Text = _G.Setting["Desc"]
+
+wait()
+Frame.Visible = true
+TweenService:Create(Frame, TweenInfo.new(.20, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {Position = UDim2.new(0.78,0,0.7)}):Play()
+Frame.Transparency = 1
+wait()
+Frame.Transparency = .9
+wait()
+Frame.Transparency = .8
+wait()
+Frame.Transparency = .7
+wait()
+Frame.Transparency = .6
+wait()
+Frame.Transparency = .5
+wait()
+Frame.Transparency = .4
+wait()
+Frame.Transparency = .3
+wait()
+Frame.Transparency = .2
+wait()
+Frame.Transparency = .1
+wait()
+Frame.Transparency = 0 
+wait()
+Title.Text = _G.Setting["Title"]
+Message1.Text = _G.Setting["Desc"]
+
+wait(_G.Setting["Time"])
+TweenService:Create(Frame, TweenInfo.new(.20, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {Position = UDim2.new(0.99,0,0.7)}):Play()
+Frame.Transparency = 0.1
+wait()
+Frame.Transparency = 0.2
+wait()
+Frame.Transparency = 0.3
+wait()
+Frame.Transparency = 0.4
+wait()
+Frame.Transparency = 0.5
+wait()
+Frame.Transparency = 0.6
+wait()
+Frame.Transparency = 0.7
+wait()
+Frame.Transparency = 0.8
+wait()
+Frame.Transparency = 0.9
+wait()
+Frame.Transparency = 1
+wait(.20)
+MessageGui:Destroy()
+end
+return LibNotify
